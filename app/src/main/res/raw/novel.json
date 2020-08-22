@@ -1,0 +1,87 @@
+{
+  "rotas":[
+
+    {
+      "id": "1",
+      "imgP": "R.drawable.topss",
+      "imgCene": "R.drawable.backgroud_quadro",
+      "nameP": "Pedro Gay",
+      "said" : "Roy Pedro Aki",
+      "button": [
+        {
+          "name": "Salve Pedro",
+          "id": "2"
+        },
+        {
+          "name": "Se tá me tirando?!",
+          "id": "8"
+        }
+      ]
+    },
+
+    {
+      "id": "2",
+      "imgP": "R.drawable.topss",
+      "imgCene": "R.drawable.background_2",
+      "nameP": "Pedro Homo",
+      "said": "Vc é etereo?",
+      "button": [
+        {
+          "name": "Sai pra lá veado!",
+          "id": "7"
+        },
+        {
+          "name": "Vc quis dizer hétero?",
+          "id": "3"
+        }
+      ]
+    },
+
+    {
+      "id": "3",
+      "imgP": "R.drawable.topss",
+      "imgCene": "R.drawable.background_2",
+      "nameP": "Pedro Putasso",
+      "said": "Preconceituosooo!",
+      "button": [
+        {
+          "name": "Pera Mano!",
+          "id": "4"
+        },
+        {
+          "name": "Fsd!",
+          "id": "@endPera"
+        }
+      ]
+    },
+
+    {
+      "id": "4",
+      "imgP": "R.drawable.topss",
+      "imgCene": "R.drawable.backgroud_quadro",
+      "nameP": "Pedro Conformado",
+      "said": "O que foi Mophobics?",
+      "button": [
+        {
+          "name": "Mophbics é teu pai!",
+          "id": "6"
+        },
+        {
+          "name": "Tua mãe é minha kkkkj!",
+          "id": "@endMãe"
+        }
+      ]
+    }
+
+
+
+
+
+
+
+
+
+
+
+  ]
+}

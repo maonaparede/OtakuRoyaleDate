@@ -29,6 +29,7 @@ public class EndScreen extends AppCompatActivity {
 
         mediaPlayer.start();
 
+
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {

@@ -2,6 +2,7 @@ package com.example.otakuroyaledate;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,13 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.otakuroyaledate.scene_handler.JsonHandler;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
-import com.example.otakuroyaledate.itens_recyclerviews.Item_dialogue;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
+import com.example.otakuroyaledate.scene_handler.backMusicHandler;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
-
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private static GroupAdapter adapterOptions;
     private static Context context;
     int a;
+
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,26 +62,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         try {
+            new JsonHandler(this).getAllJson();
             SceneHandler er = new SceneHandler();
             er.init(this);
             SceneHandler.nextCene("1");
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        try {
-            new JsonHandler(this).getAllJson();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+      // SongHandler w = new SongHandler(this , "R.raw.tatakae");
+       // w.start();
 
     }
 
 
     public void click(View view){
-        SceneHandler.nextCene("1");
-
+        //SceneHandler.nextCene("1");
+        backMusicHandler u = new backMusicHandler();
+        u.init(this , "R.raw.tatakae");
+        u.start();
         return;
     }
 

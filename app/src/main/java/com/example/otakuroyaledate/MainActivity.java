@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.otakuroyaledate.scene_handler.JsonHandler;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
-import com.example.otakuroyaledate.scene_handler.backMusicHandler;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
@@ -34,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private static Context context;
     int a;
 
-    private MediaPlayer mediaPlayer;
+    private backMusicHandler re;
+    private backMusicHandler tr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +73,19 @@ public class MainActivity extends AppCompatActivity {
         }
       // SongHandler w = new SongHandler(this , "R.raw.tatakae");
        // w.start();
-
+         re = new backMusicHandler();
+         tr = new backMusicHandler();
     }
 
 
     public void click(View view){
         //SceneHandler.nextCene("1");
-        backMusicHandler u = new backMusicHandler();
-        u.init(this , "R.raw.tatakae");
-        u.start();
+        tr.init(this , "R.raw.stone");
+        tr.start();
+
+        re.init(this , "R.raw.tatakae");
+        re.start();
+
         return;
     }
 

@@ -12,6 +12,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.example.otakuroyaledate.MainActivity;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_dialogue;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 public class SceneBuilder {
 
     private Context context;
@@ -38,14 +41,17 @@ public class SceneBuilder {
     }
 
 
-    public SceneBuilder imagePersonagem(String imageResource){
+    public SceneBuilder imagePersonagem(String imageResource) throws IOException {
 
         if(imageResource != null) {
-            String resName = imageResource.split("\\.")[2]; // remove the 'R.drawable.' prefix
-            int resId = context.getResources().getIdentifier(resName, "drawable", context.getPackageName());
+           // String resName = imageResource.split("\\.")[2]; // remove the 'R.drawable.' prefix
+            //    int resId = context.getResources().getIdentifier(resName, "drawable", context.getPackageName());
 
-            Drawable drawable = context.getResources().getDrawable(resId);
-            Glide.with(context).load(drawable)
+            InputStream ims = context.getAssets().open("personagens/topss.png");
+            Drawable d = Drawable.createFromStream(ims, null);
+
+            //Drawable drawable = context.getResources().getDrawable(resId);
+            Glide.with(context).load(d)
                     .transition(DrawableTransitionOptions.withCrossFade().crossFade(1500)).into(MainActivity.getPersonagem());
         }
         return this;

@@ -1,19 +1,18 @@
-package com.example.otakuroyaledate.scene_handler;
+package com.example.otakuroyaledate;
 
 import android.content.Context;
 import android.media.MediaPlayer;
-import android.util.Log;
 
 
 //Classe pai de todo o Sound efx
 public class backMusicHandler {
 
-    private static backMusicHandler instance;
-    private static MediaPlayer mediaPlayer;
+   // private static backMusicHandler instance;
+    private MediaPlayer mediaPlayer;
     private Context context;
     private String resource;
 
-
+/*
     public static synchronized backMusicHandler getInstance() {
         if (instance == null) {
             instance = new backMusicHandler();
@@ -21,6 +20,10 @@ public class backMusicHandler {
         return instance;
 
     }
+
+ */
+
+
 
     public void init(Context context, String resource) {
         this.context = context;
@@ -73,8 +76,6 @@ public class backMusicHandler {
 
     public void finish(){
 
-
-        Log.d("Terminou" , "top");
     }
 
 }

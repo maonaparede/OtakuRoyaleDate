@@ -2,7 +2,6 @@ package com.example.otakuroyaledate;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.otakuroyaledate.scene_handler.JsonHandler;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
+import com.example.otakuroyaledate.sound.SoundBackgroundHandler;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
@@ -33,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
     private static Context context;
     int a;
 
-    private backMusicHandler re;
-    private backMusicHandler tr;
+
+    public static Sfx songBackground;
+    public static Sfx audioPersonagem;
+    public static Sfx efeitos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,18 +75,23 @@ public class MainActivity extends AppCompatActivity {
         }
       // SongHandler w = new SongHandler(this , "R.raw.tatakae");
        // w.start();
-         re = new backMusicHandler();
-         tr = new backMusicHandler();
+
+         songBackground = new Sfx();
     }
 
+    Integer count = 0;
 
     public void click(View view){
         //SceneHandler.nextCene("1");
-        tr.init(this , "R.raw.stone");
-        tr.start();
+        SoundBackgroundHandler rea = new SoundBackgroundHandler();
+        if(count == 0) {
 
-        re.init(this , "R.raw.tatakae");
-        re.start();
+            rea.start(this, "R.raw.stone");
+            count++;
+        }else{
+            rea.pause();
+            count = 0;
+        }
 
         return;
     }
@@ -113,6 +120,19 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(context, EndScreen.class);
         intent.putExtra("end", end);
         context.startActivity(intent);
+    }
+
+
+    public static Sfx getAudioPersonagem() {
+        return audioPersonagem;
+    }
+
+    public static Sfx getEfeitos() {
+        return efeitos;
+    }
+
+    public static Sfx getSongBackground() {
+        return songBackground;
     }
 
     public static ImageView getBackground() {

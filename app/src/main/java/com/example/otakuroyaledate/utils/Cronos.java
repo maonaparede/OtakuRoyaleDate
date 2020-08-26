@@ -4,12 +4,6 @@ import android.content.Context;
 import android.os.CountDownTimer;
 import android.util.Log;
 
-interface CronosInterface {
-
-    void cronosFinish();
-    void cronosUpdate(long time);
-
-}
 //vai ser usado em um dos tipos de telas finais, como cronometro pro user escolher qual
 //decisão tomar
 public class Cronos {
@@ -20,8 +14,8 @@ public class Cronos {
     private Boolean isRunning;
     private Boolean isFinish;
 
-    public Cronos(CronosInterface cronosInterface1 , int second) {
-        millisInit = second * 1000;
+    public Cronos(CronosInterface cronosInterface1 , int milisecond) {
+        millisInit = milisecond;
         cronosInterface = cronosInterface1;
         isRunning = false;
     }

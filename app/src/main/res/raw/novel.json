@@ -3,10 +3,10 @@
 
     {
       "id": "1",
-      "imgP": "R.drawable.topss",
-      "imgCene": "R.drawable.backgroud_quadro",
-      "nameP": "Pedro Gay",
-      "said" : "Roy Pedro Aki",
+      "imgP": "topss.png",
+      "imgCene": "backgroud_quadro.jpg",
+      "nameP": "Pedro ",
+      "said" : "Oi tudo bem?",
       "button": [
         {
           "name": "Salve Pedro",
@@ -21,9 +21,9 @@
 
     {
       "id": "2",
-      "imgP": "R.drawable.topss",
-      "imgCene": "R.drawable.background_2",
-      "nameP": "Pedro Homo",
+      "imgP": null,
+      "imgCene": null,
+      "nameP": "Pedro Suspeito",
       "said": "Vc é etereo?",
       "button": [
         {
@@ -39,8 +39,8 @@
 
     {
       "id": "3",
-      "imgP": "R.drawable.topss",
-      "imgCene": "R.drawable.background_2",
+      "imgP": "topss.png",
+      "imgCene": "background_2.jpg",
       "nameP": "Pedro Putasso",
       "said": "Preconceituosooo!",
       "button": [
@@ -50,15 +50,15 @@
         },
         {
           "name": "Fsd!",
-          "id": "@endPera"
+          "id": "@vendPera"
         }
       ]
     },
 
     {
       "id": "4",
-      "imgP": "R.drawable.topss",
-      "imgCene": "R.drawable.backgroud_quadro",
+      "imgP": "topss.png",
+      "imgCene": "background_2.jpg",
       "nameP": "Pedro Conformado",
       "said": "O que foi Mophobics?",
       "button": [
@@ -67,14 +67,11 @@
           "id": "6"
         },
         {
-          "name": "Tua mãe é minha kkkkj!",
-          "id": "@endMãe"
+          "name": "Salve kkkkj!",
+          "id": "@iendmae"
         }
       ]
     }
-
-
-
 
 
 

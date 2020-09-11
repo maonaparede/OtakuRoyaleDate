@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     Integer count = 0;
 
+    /*
     public void click(View view){
         //SceneHandler.nextCene("1");
         SoundBackgroundHandler rea = new SoundBackgroundHandler();
@@ -89,19 +90,20 @@ public class MainActivity extends AppCompatActivity {
             rea.start(this, "R.raw.stone");
             count++;
         }else{
-            rea.pause();
+           // rea.pause();
             count = 0;
         }
 
         return;
     }
+     */
 
 
 
     private void optionSelected(Item item , View view){
         Item_option option = (Item_option) item;
         String key = option.getIdKey();
-        Log.d("Key" , key);
+        Log.d("Cene ID" , key);
 
 
         if(key.substring(0, 1).equals("@")){
@@ -117,9 +119,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void toEndScreen(String end){
-        Intent intent = new Intent(context, EndScreen.class);
-        intent.putExtra("end", end);
-        context.startActivity(intent);
+        if(end.substring(0,2).equals("@v")){
+            Intent intent = new Intent(context, EndVideo.class);
+            intent.putExtra("end", end);
+            context.startActivity(intent);
+        }else
+        if(end.substring(0,2).equals("@i")){
+            Intent intent = new Intent(context, EndImage.class);
+            intent.putExtra("end", end);
+            context.startActivity(intent);
+        }else{
+            Intent intent = new Intent(context, EndScreen.class);
+            intent.putExtra("end", end);
+            context.startActivity(intent);
+        }
     }
 
 

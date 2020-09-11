@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.example.otakuroyaledate.MainActivity;
 
-public class EfeitoHandler extends SoundBackgroundHandler {
+public class SoundEfeitoHandler extends SoundBackgroundHandler {
 
     @Override
     public void start(Context context, String resource) {

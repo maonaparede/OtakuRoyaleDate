@@ -24,18 +24,18 @@ public class SceneBuilder {
         return this;
     }
 
-    public SceneBuilder background(String imageResource){
+    public SceneBuilder background(String imageResource) throws IOException {
 
-        String resName = imageResource.split("\\.")[2]; // remove the 'R.drawable.' prefix
-        int resId = context.getResources().getIdentifier(resName, "drawable", context.getPackageName());
+        if(imageResource != null) {
+            InputStream ims = context.getAssets().open("background/" + imageResource);
+            Drawable d = Drawable.createFromStream(ims, null);
 
-        Drawable drawable = context.getResources().getDrawable(resId);
+            TransitionDrawable transitionDrawable = new TransitionDrawable(new Drawable[]{
+                    MainActivity.getBackground().getDrawable(), d});
 
-        TransitionDrawable transitionDrawable = new TransitionDrawable(new Drawable[]{
-                MainActivity.getBackground().getDrawable() , drawable });
-
-        MainActivity.getBackground().setImageDrawable(transitionDrawable);
-        transitionDrawable.startTransition(500);
+            MainActivity.getBackground().setImageDrawable(transitionDrawable);
+            transitionDrawable.startTransition(500);
+        }
 
         return this;
     }
@@ -44,13 +44,10 @@ public class SceneBuilder {
     public SceneBuilder imagePersonagem(String imageResource) throws IOException {
 
         if(imageResource != null) {
-           // String resName = imageResource.split("\\.")[2]; // remove the 'R.drawable.' prefix
-            //    int resId = context.getResources().getIdentifier(resName, "drawable", context.getPackageName());
 
-            InputStream ims = context.getAssets().open("personagens/topss.png");
+            InputStream ims = context.getAssets().open("personagens/" + imageResource);
             Drawable d = Drawable.createFromStream(ims, null);
 
-            //Drawable drawable = context.getResources().getDrawable(resId);
             Glide.with(context).load(d)
                     .transition(DrawableTransitionOptions.withCrossFade().crossFade(1500)).into(MainActivity.getPersonagem());
         }

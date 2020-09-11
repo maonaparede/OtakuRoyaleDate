@@ -25,13 +25,17 @@ public class SceneHandler {
 
                 hadler.clearRecycler();
 
-                new SceneBuilder().build()
-                        .background(scene.getImgCene())
-                        .dialogue(scene.getSaid())
-                        .imagePersonagem(scene.getImgP())
-                        .namePersonagem(scene.getNameP());
+                if (scene != null){
+                    new SceneBuilder().build()
+                            .background(scene.getImgCene())
+                            .dialogue(scene.getSaid())
+                            .imagePersonagem(scene.getImgP())
+                            .namePersonagem(scene.getNameP());
 
                 hadler.addAllButtons(scene.getButton());
+            }else{
+                    throw new Exception("Cene ID: "+ ceneId + " not exist");
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();

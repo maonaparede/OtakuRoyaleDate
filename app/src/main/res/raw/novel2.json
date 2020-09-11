@@ -3,9 +3,9 @@
 
     {
       "id": "5",
-      "imgP": "R.drawable.ic_launcher_background",
-      "imgCene": "R.drawable.backgroud_quadro",
-      "nameP": "Pedro Gay",
+      "imgP": "topss.png",
+      "imgCene": "background_2.jpg",
+      "nameP": "Pedro Suspeito",
       "said": "Roy Pedro Aki! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in mattis ipsum. Cras eget consectetur purus. Aenean magna metus, sollicitudin non ante vitae, posuere ornare metus. Maecenas in euismod eros. Cras et lacus feugiat, pharetra tortor in, bibendum orci. Vestibulum euismod adipiscing risus vitae sagittis. Aliquam mollis sit amet nibh vel bibendum. Quisque dignissim urna sed gravida aliquet. Aenean dapibus fermentum nisi id pretium. Quisque in lacus vulputate, feugiat odio ultricies, tempus neque.",
 
       "button": [
@@ -21,10 +21,10 @@
     },
 
     {
-      "id": "6",
-      "imgP": "R.drawable.ic_launcher_background",
-      "imgCene": "R.drawable.background_2",
-      "nameP": "Pedro Homo",
+      "id": "20",
+      "imgP": "topss.png",
+      "imgCene": "background_2.jpg",
+      "nameP": "Pedro Suspeito",
       "said": "Vc é etereo?",
       "button": [
         {
@@ -58,8 +58,8 @@
 
     {
       "id": "8",
-      "imgP": "R.drawable.ic_launcher_background",
-      "imgCene": "R.drawable.backgroud_quadro",
+      "imgP": "topss.png",
+      "imgCene": "background_2.jpg",
       "nameP": "Pedro Conformado",
       "said": "O que foi Mophobics?",
       "button": [

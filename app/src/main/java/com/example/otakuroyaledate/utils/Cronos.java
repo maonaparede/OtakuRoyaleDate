@@ -14,8 +14,8 @@ public class Cronos {
     private Boolean isRunning;
     private Boolean isFinish;
 
-    public Cronos(CronosInterface cronosInterface1 , int milisecond) {
-        millisInit = milisecond;
+    public Cronos(CronosInterface cronosInterface1 , int seconds) {
+        millisInit = seconds * 1000;
         cronosInterface = cronosInterface1;
         isRunning = false;
     }
@@ -36,7 +36,6 @@ public class Cronos {
                 public void onTick(long millisUntilFinished) {
                     //   mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
                     millisPassed = millisUntilFinished;
-                    cronosInterface.cronosUpdate(millisUntilFinished);
                     Log.d("Mili start", millisPassed + "");
                 }
 
@@ -55,7 +54,6 @@ public class Cronos {
                 public void onTick(long millisUntilFinished) {
                     //   mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
                     millisPassed = millisUntilFinished;
-                    cronosInterface.cronosUpdate(millisUntilFinished);
                     Log.d("Mili play", millisPassed + "");
                 }
                 public void onFinish() {

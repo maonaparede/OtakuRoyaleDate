@@ -36,9 +36,6 @@ public class JsonHandler {
         AllRotas allRotas;
         allRotas = new Gson().fromJson(reader, AllRotas.class);
 
-        for (String a: allRotas.getAllRotas()) {
-            Log.d("Rotas all" , a);
-        }
         return allRotas.getAllRotas();
     }
 
@@ -57,9 +54,6 @@ public class JsonHandler {
         Rotas rotas;
         rotas = new Gson().fromJson(reader, Rotas.class);
 
-        for ( Scene a: rotas.getRotas()) {
-            Log.d("Persona", a.getSaid() + " ");
-        }
         return rotas;
     }
 }

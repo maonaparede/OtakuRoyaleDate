@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EndVideo"
-    android:background="#000"
-    >
+    tools:context=".EndImage">
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+    <ImageView
+        android:id="@+id/background_end_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_launcher_background"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        tools:ignore="VectorDrawableCompat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

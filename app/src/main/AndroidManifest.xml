@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
-        <activity android:name=".EndVideo"></activity>
+        <activity android:name=".EndVideo"
+            android:screenOrientation="sensorLandscape"
+            />
 
 
         <activity android:name=".EndImage"

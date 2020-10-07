@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        startActivity(new Intent(this , EndVideo.class));
+
         try {
             new JsonHandler(this).getAllJson();
             SceneHandler er = new SceneHandler();

@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
@@ -18,7 +20,9 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 public class EndVideo extends AppCompatActivity {
 
-    private YouTubePlayerView youTubePlayerView;
+    private VideoView videoView;
+    private  MediaController mediaController;
+    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +30,25 @@ public class EndVideo extends AppCompatActivity {
         setContentView(R.layout.activity_end_video);
 
 
-        final String videoID = "ZU79bUsaYbc";
+        videoView = findViewById(R.id.videoView);
 
-        youTubePlayerView = findViewById(R.id.webView);
+        //Set MediaController  to enable play, pause, forward, etc options.
+        mediaController = new MediaController(this);
+        mediaController.setAnchorView(videoView);
+        //Location of Media File
 
-        youTubePlayerView.getYouTubePlayerWhenReady(new YouTubePlayerCallback() {
+        uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video);
+        //Starting VideView By Setting MediaController and URI
+        videoView.setMediaController(mediaController);
+        videoView.setVideoURI(uri);
+        videoView.requestFocus();
+        videoView.start();
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
-            public void onYouTubePlayer(YouTubePlayer youTubePlayer) {
-                youTubePlayer.loadVideo(videoID , 0);
-                youTubePlayer.play();
+            public void onCompletion(MediaPlayer mp) {
+                endVideo();
             }
         });
-
 
 
 
@@ -45,6 +56,6 @@ public class EndVideo extends AppCompatActivity {
     }
 
     private void endVideo(){
-
+        //Créditos
     }
 }

@@ -27,7 +27,7 @@ public class EndImage extends AppCompatActivity implements CronosInterface {
         setContentView(R.layout.activity_end_image);
 
         image = findViewById(R.id.background_end_image);
-        cronos = new Cronos(this , 12);
+        cronos = new Cronos(this , 25);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {

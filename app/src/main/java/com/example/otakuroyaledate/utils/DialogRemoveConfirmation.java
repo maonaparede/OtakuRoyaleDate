@@ -15,7 +15,7 @@ public class DialogRemoveConfirmation{
 
     public ConfirmationDialog confirmationInterface;
 
-    public void createDialogRemoveConfirmation(final Context context,
+    public void  createDialogRemoveConfirmation(final Context context,
                                                String content1,
                                                String title1,
                                                ConfirmationDialog confirmationInterface){

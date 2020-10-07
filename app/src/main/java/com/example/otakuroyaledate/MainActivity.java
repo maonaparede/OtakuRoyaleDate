@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.otakuroyaledate.scene_handler.JsonHandler;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
-import com.example.otakuroyaledate.sound.SoundBackgroundHandler;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        startActivity(new Intent(this , EndVideo.class));
+        startActivity(new Intent(this , EndVideo.class).putExtra("end","27"));
 
         try {
             new JsonHandler(this).getAllJson();
@@ -75,14 +74,15 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-      // SongHandler w = new SongHandler(this , "R.raw.tatakae");
-       // w.start();
 
-         songBackground = new Sfx();
+       //SongHandler w = new SongHandler(this , "R.raw.tatakae");
+       //w.start();
+       //songBackground = new Sfx();
     }
 
-    Integer count = 0;
 
+
+   // Integer count = 0;
     /*
     public void click(View view){
         //SceneHandler.nextCene("1");
@@ -107,14 +107,12 @@ public class MainActivity extends AppCompatActivity {
         String key = option.getIdKey();
         Log.d("Cene ID" , key);
 
-
         if(key.substring(0, 1).equals("@")){
             toEndScreen(key);
         }else{
             SceneHandler.nextCene(key);
             return;
         }
-
     }
 
 
@@ -131,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("end", end);
             context.startActivity(intent);
         }else{
-            Intent intent = new Intent(context, EndScreen.class);
+            Intent intent = new Intent(context, Credits.class);
             intent.putExtra("end", end);
             context.startActivity(intent);
         }

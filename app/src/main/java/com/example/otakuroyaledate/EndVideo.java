@@ -1,28 +1,26 @@
 package com.example.otakuroyaledate;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+import com.example.otakuroyaledate.objects.Scene;
+import com.example.otakuroyaledate.scene_handler.SceneMap;
+
+import java.io.IOException;
 
 public class EndVideo extends AppCompatActivity {
 
     private VideoView videoView;
     private  MediaController mediaController;
     private Uri uri;
+    private String end;
+    private Scene scene;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +34,32 @@ public class EndVideo extends AppCompatActivity {
         mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         //Location of Media File
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            end = bundle.getString("end");
+            try {
+                setVideo();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-        uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video);
+        try{
+            setVideo();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private void setVideo() throws IOException {
+        scene = SceneMap.getCeneMapById(end);
+        String video = scene.getImgCene();
+
+        //Pega o arquivo do Raw e seta como URI
+        int id = this.getResources().getIdentifier(video, "raw", this.getPackageName());
+        uri = Uri.parse("android.resource://" + getPackageName() + "/" + id);
         //Starting VideView By Setting MediaController and URI
         videoView.setMediaController(mediaController);
         videoView.setVideoURI(uri);
@@ -49,13 +71,13 @@ public class EndVideo extends AppCompatActivity {
                 endVideo();
             }
         });
-
-
-
-
     }
 
     private void endVideo(){
-        //Créditos
+        Intent intent = new Intent(this , Credits.class);
+        intent.putExtra("end" , end);
+        startActivity(intent);
     }
+
+
 }

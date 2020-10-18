@@ -24,13 +24,8 @@ public class Item_dialogue extends Item<ViewHolder> {
 
         believe.cht.fadeintextview.TextView dialogue = viewHolder.itemView.findViewById(R.id.dialogue_text);
 
-           // Animation out = new AlphaAnimation(0.0f, 1.0f);
-           // out.setRepeatMode(Animation.REVERSE);
-          //  out.setDuration(1000);
-
             dialogue.setLetterDuration(50);
             dialogue.setText(textDialogue);
-            //dialogue.setAnimation(out);
         }
 
 

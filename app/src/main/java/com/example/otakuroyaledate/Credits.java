@@ -3,8 +3,10 @@ package com.example.otakuroyaledate;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.otakuroyaledate.objects.Scene;
@@ -77,5 +79,11 @@ public class Credits extends AppCompatActivity implements ConfirmationDialog {
     @Override
     public void DialogConfirmation() {
 
+    }
+
+    public void toHome(View v){
+        //Send to main Activity and clear all the screen Before
+        startActivity(new Intent(this , MainActivity.class).
+                setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
     }
 }

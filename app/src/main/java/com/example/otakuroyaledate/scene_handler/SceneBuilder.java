@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.example.otakuroyaledate.Game;
 import com.example.otakuroyaledate.MainActivity;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_dialogue;
 
@@ -20,7 +21,7 @@ public class SceneBuilder {
     private Context context;
 
     public SceneBuilder build() {
-        this.context = MainActivity.getContext();
+        this.context = Game.getContext();
         return this;
     }
 
@@ -31,9 +32,9 @@ public class SceneBuilder {
             Drawable d = Drawable.createFromStream(ims, null);
 
             TransitionDrawable transitionDrawable = new TransitionDrawable(new Drawable[]{
-                    MainActivity.getBackground().getDrawable(), d});
+                    Game.getBackground().getDrawable(), d});
 
-            MainActivity.getBackground().setImageDrawable(transitionDrawable);
+            Game.getBackground().setImageDrawable(transitionDrawable);
             transitionDrawable.startTransition(500);
         }
 
@@ -45,11 +46,11 @@ public class SceneBuilder {
 
         if(imageResource != null) {
 
-            InputStream ims = context.getAssets().open("personagens/" + imageResource);
+            InputStream ims = context.getAssets().open("characters/" + imageResource);
             Drawable d = Drawable.createFromStream(ims, null);
 
             Glide.with(context).load(d)
-                    .transition(DrawableTransitionOptions.withCrossFade().crossFade(1500)).into(MainActivity.getPersonagem());
+                    .transition(DrawableTransitionOptions.withCrossFade().crossFade(1500)).into(Game.getPersonagem());
         }
         return this;
     }
@@ -58,8 +59,8 @@ public class SceneBuilder {
     public SceneBuilder dialogue(String text){
 
         if(!TextUtils.isEmpty(text)){
-            MainActivity.getAdapterDialogue().clear();
-            MainActivity.getAdapterDialogue().add(new Item_dialogue(text));
+            Game.getAdapterDialogue().clear();
+            Game.getAdapterDialogue().add(new Item_dialogue(text));
         }
 
         return this;
@@ -68,14 +69,14 @@ public class SceneBuilder {
 
     public SceneBuilder namePersonagem(String name){
 
-        String nameB = MainActivity.getNamePersonagem().getText().toString();
+        String nameB = Game.getNamePersonagem().getText().toString();
         if((!TextUtils.isEmpty(name)) && (!name.equals(nameB)) ) {
 
             Animation out = new AlphaAnimation(0.0f, 1.0f);
             out.setRepeatMode(Animation.REVERSE);
             out.setDuration(500);
-            MainActivity.getNamePersonagem().setText(name);
-            MainActivity.getNamePersonagem().setAnimation(out);
+            Game.getNamePersonagem().setText(name);
+            Game.getNamePersonagem().setAnimation(out);
         }
         return this;
     }

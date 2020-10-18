@@ -2,11 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.otakuroyaledate">
 
-
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,16 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-
-        <activity android:name=".EndVideo"
-            android:screenOrientation="sensorLandscape"
-            />
-
-
-        <activity android:name=".EndImage"
-            android:screenOrientation="sensor"
-            />
-
+        <activity android:name=".Game"></activity>
+        <activity
+            android:name=".EndVideo"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".EndImage"
+            android:screenOrientation="sensor" />
         <activity
             android:name=".Credits"
             android:screenOrientation="sensor" />

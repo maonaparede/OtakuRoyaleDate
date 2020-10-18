@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.CountDownTimer;
 import android.util.Log;
 
+import com.example.otakuroyaledate.Game;
 import com.example.otakuroyaledate.MainActivity;
 import com.example.otakuroyaledate.utils.Cronos;
 import com.example.otakuroyaledate.utils.CronosInterface;
@@ -16,20 +17,20 @@ public class SoundBackgroundHandler{
         //Seria legal ter um fade in e out
 
         public void start(Context context, String resource){
-            MainActivity.getSongBackground().init(context , resource , true);
-            MainActivity.getSongBackground().start();
+            Game.getSongBackground().init(context , resource , true);
+            Game.getSongBackground().start();
         }
 
         public void play(){
-            MainActivity.getSongBackground().play();
+            Game.getSongBackground().play();
         }
 
         public void pause(){
-           MainActivity.getSongBackground().pause();
+            Game.getSongBackground().pause();
         }
 
         public void stop(){
-            MainActivity.getSongBackground().stop();
+            Game.getSongBackground().stop();
         }
 
 

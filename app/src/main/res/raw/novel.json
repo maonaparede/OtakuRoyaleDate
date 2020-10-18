@@ -14,17 +14,17 @@
         },
         {
           "name": "Se tá me tirando?!",
-          "id": "8"
+          "id": "3"
         }
       ]
     },
 
     {
       "id": "2",
-      "imgP": null,
-      "imgCene": null,
+      "imgP": "topss.png",
+      "imgCene": "background_2.jpg",
       "nameP": "Pedro Suspeito",
-      "said": "Vc é etereo?",
+      "said": "Vc é etereo? dsdsdsd Vc é etereo? dsdsdsd Vc é etereo? dsdsdsd Vc é etereo? dsdsdsd Vc é etereo? dsdsdsd Vc é etereo? dsdsdsd dsdsdsd Vc é etereo? dsdsdsd Vc é etereo? dsdsdsd Vc é etereo? dsdsdsd",
       "button": [
         {
           "name": "Sai pra lá veado!",
@@ -64,7 +64,7 @@
       "button": [
         {
           "name": "Mophbics é teu pai!",
-          "id": "6"
+          "id": "3"
         },
         {
           "name": "Salve kkkkj!",
@@ -74,7 +74,7 @@
     },
 
     {
-      "id": "27",
+      "id": "7",
       "imgP": "topss.png",
       "imgCene": "video",
       "nameP": "Pedro Conformado",

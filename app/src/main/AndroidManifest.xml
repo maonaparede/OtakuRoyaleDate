@@ -15,10 +15,10 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Game"></activity>
         <activity
-            android:name=".EndVideo"
+            android:name=".VideoOnly"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name=".EndImage"
+            android:name=".ImageOnly"
             android:screenOrientation="sensor" />
         <activity
             android:name=".Credits"

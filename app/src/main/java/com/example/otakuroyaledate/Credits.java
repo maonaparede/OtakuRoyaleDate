@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.otakuroyaledate.objects.Scene;
 import com.example.otakuroyaledate.scene_handler.SceneMap;
 import com.example.otakuroyaledate.utils.ConfirmationDialog;
-import com.example.otakuroyaledate.utils.DialogRemoveConfirmation;
+import com.example.otakuroyaledate.utils.DialogGeneric;
 
 public class Credits extends AppCompatActivity implements ConfirmationDialog {
 
@@ -39,7 +39,7 @@ public class Credits extends AppCompatActivity implements ConfirmationDialog {
 
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.tatakae);
 
-        mediaPlayer.start();
+        //mediaPlayer.start();
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -50,17 +50,19 @@ public class Credits extends AppCompatActivity implements ConfirmationDialog {
 
 
     private void message(){
-        String message = "Fim";
+        String message = "O desenvolvedor esqueceu de colocar uma mensagem final aqui, então... Obrigado por jogar";
+
         if(SceneMap.getCeneMapById(end) != null) {
             Scene scene = SceneMap.getCeneMapById(end);
             message = scene.getSaid();
         }
 
-       DialogRemoveConfirmation removeConfirmation = new DialogRemoveConfirmation();
+
+       DialogGeneric removeConfirmation = new DialogGeneric();
 
        removeConfirmation
-               .createDialogRemoveConfirmation(this
-                       , message , "Obrigado por Jogar!",this);
+               .createDialogRemoveConfirmation
+                       (this, message , R.string.credits_title,this);
     }
 
 

@@ -6,7 +6,8 @@ import android.media.MediaPlayer;
 
 
 
-//Classe pai de todo o Sound efx
+//Maybe will be finish in the future
+
 public class Sfx implements MediaPlayer.OnCompletionListener {
 
 
@@ -14,17 +15,6 @@ public class Sfx implements MediaPlayer.OnCompletionListener {
     private Context context;
     private String resource;
     private Boolean loop;
-
-/*
-    public static synchronized backMusicHandler getInstance() {
-        if (instance == null) {
-            instance = new backMusicHandler();
-        }
-        return instance;
-
-    }
-
- */
 
 
 

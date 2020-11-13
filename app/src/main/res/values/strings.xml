@@ -3,4 +3,10 @@
 
     <string name="credits">Template Desenvolvido por maonaparede(GitHub)
      grande mestre da arte de codar, gênio generalista</string>
+
+    <string name="credits_title">Obrigado por Jogar!</string>
+
+    <string name="not_saved_game">Você não possui nenhum jogo Salvo</string>
+    <string name="new_game_message">Deseja Começar um novo Jogo? Todos os dados do seu jogo serão excluidos, tem certeza?</string>
+    <string name="new_game_title">Novo Jogo</string>
 </resources>

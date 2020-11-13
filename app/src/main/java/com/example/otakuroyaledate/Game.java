@@ -13,15 +13,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
-import com.example.otakuroyaledate.scene_handler.JsonHandler;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
-
-import java.io.IOException;
 
 public class Game extends AppCompatActivity {
 
@@ -78,33 +76,13 @@ public class Game extends AppCompatActivity {
             SceneHandler er = new SceneHandler();
             er.init(this);
             SceneHandler.nextCene(id);
-        }
-
-        // startActivity(new Intent(this , EndVideo.class).putExtra("end","27"));
-
-        
-
-    }
-
-
-
-    // Integer count = 0;
-    /*
-    public void click(View view){
-        //SceneHandler.nextCene("1");
-        SoundBackgroundHandler rea = new SoundBackgroundHandler();
-        if(count == 0) {
-
-            rea.start(this, "R.raw.stone");
-            count++;
         }else{
-           // rea.pause();
-            count = 0;
+            Toast.makeText(this , "Algo deu Errado" , Toast.LENGTH_LONG).show();
         }
 
-        return;
     }
-     */
+
+
 
 
 
@@ -113,15 +91,23 @@ public class Game extends AppCompatActivity {
         String key = option.getIdKey();
         Log.d("Cene ID" , key);
 
-        if(key.substring(0, 1).equals("@")){
-            toEndScreen(key);
+        if(key != null){
+            if (key.substring(0, 1).equals("@")) {
+                toEndScreen(key);
+            } else {
+                nextCene(key);
+                return;
+            }
         }else{
-            SceneHandler.nextCene(key);
-            //save id from scene to continue
-            SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
-            shared.edit().putString("id" , key).apply();
-            return;
+            Log.e("Dev miss: ", " You forgot the 'key' of a Option");
         }
+    }
+
+    private void nextCene(String key){
+        SceneHandler.nextCene(key);
+        //save id from scene to continue
+        SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+        shared.edit().putString("id" , key).apply();
     }
 
 
@@ -129,12 +115,12 @@ public class Game extends AppCompatActivity {
 
     public void toEndScreen(String end){
         if(end.substring(0,2).equals("@v")){
-            Intent intent = new Intent(context, EndVideo.class);
+            Intent intent = new Intent(context, VideoOnly.class);
             intent.putExtra("end", end);
             context.startActivity(intent);
         }else
         if(end.substring(0,2).equals("@i")){
-            Intent intent = new Intent(context, EndImage.class);
+            Intent intent = new Intent(context, ImageOnly.class);
             intent.putExtra("end", end);
             context.startActivity(intent);
         }else{

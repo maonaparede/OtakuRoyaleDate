@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EndImage">
+    tools:context=".ImageOnly">
 
     <ImageView
         android:id="@+id/background_end_image"
@@ -17,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_launcher_background"
+        android:scaleY="2.8"
+        android:onClick="clickImage"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
         tools:ignore="VectorDrawableCompat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

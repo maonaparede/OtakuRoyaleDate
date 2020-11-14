@@ -44,7 +44,7 @@
         android:layout_marginEnd="20dp"
         android:width="120dp"
         android:background="@drawable/bg_button_rounded"
-        android:onClick="clickteste"
+        android:onClick="credits"
         android:text="Credits"
         android:textColor="#FFF"
         app:layout_constraintEnd_toEndOf="parent"

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
     }
 
 
-    //music Teste
+    //music Teste - ignorar
     public void clickteste(View v){
         if(teste == 0){
             new MusicPlayer().init(this , R.raw.stone , false).start();

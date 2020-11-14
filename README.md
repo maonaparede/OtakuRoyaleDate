@@ -152,3 +152,18 @@ No campo button dentro de uma cena.
 		  
 Em qualquer dos prefixos essa estrutura será padrão. "said" será a mensagem que aparecerá um pouca antes da tela dos créditos,
 é um bom lugar para colocar o que acontceu com o seu personagem e finalizar a história de uma maneira divertida.
+
+
+
+Erros Comuns do Usuário	:
+
+	A imagem de fundo ou do Personagem não aparece, solução:
+		Verifique se o nome e a extensão da imagem estão corretos, use copiar e colar se preciso.
+		
+	Depois que eu clico no Botão a cena não muda, solução:
+		Você provavelmente digitou o id que está dentro do botão errado, de novo,  use copiar e colar se preciso.
+		
+		
+		
+
+	

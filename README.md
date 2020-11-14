@@ -70,7 +70,7 @@ Entendeu mais ou menos? Mexa com o exemplo mude alguns textos de fala e opção 
 
 2 - Criando uma rota nova
 
-Crie um arquivo Json dentro de "raw" e coloque um nome, copie e cole o exemplo. Pronto
+Crie um arquivo Json dentro de "raw" e coloque um nome, copie e cole o exemplo de estrutura acima. Pronto
 Agora adicione a sua rota no arquivo "all_rotes.json". Pronto. Ficaria assim
 
 	        {

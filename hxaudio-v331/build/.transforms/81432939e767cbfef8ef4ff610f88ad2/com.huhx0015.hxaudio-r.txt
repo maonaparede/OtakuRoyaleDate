@@ -1,0 +1,2 @@
+com.huhx0015.hxaudio
+string app_name

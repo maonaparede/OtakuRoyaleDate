@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
 
 
 
+    Integer teste = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +31,22 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
             e.printStackTrace();
         }
 
-
     }
 
+
+    //music Teste
+    public void clickteste(View v){
+        if(teste == 0){
+            new MusicPlayer().init(this , R.raw.stone , false).start();
+            teste = 1;
+        }else if(teste == 1){
+            new MusicPlayer().init(this , R.raw.tatakae , false).start();
+            teste = 2;
+        }else{
+            new MusicPlayer().pauseM();
+            teste = 0;
+        }
+    }
 
 
     public void newGame(View v){
@@ -60,11 +75,16 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
     @Override
     public void DialogConfirmation() {
 
-        //Clear the saved id - reset to id 1
-        SharedPreferences pref;
-        pref = getSharedPreferences("info", MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.clear().apply();
+        try {
+            //Clear the saved id - reset to id 1
+            SharedPreferences pref;
+            pref = getSharedPreferences("info", MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+            editor.clear().apply();
+        } finally {
+            SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+            shared.edit().putString("id" , "1").apply();
+        }
 
         startActivity(new Intent(this , Game.class).putExtra("id" , "1"));
     }

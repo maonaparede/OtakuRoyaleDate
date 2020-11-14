@@ -75,7 +75,7 @@ public class Game extends AppCompatActivity {
 
             SceneHandler er = new SceneHandler();
             er.init(this);
-            SceneHandler.nextCene(id);
+            SceneHandler.nextCene("1");
         }else{
             Toast.makeText(this , "Algo deu Errado" , Toast.LENGTH_LONG).show();
         }

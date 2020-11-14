@@ -1,0 +1,34 @@
+{
+  "rotas":[
+
+    {
+      "id": "@ifinal",
+      "imgP": " ",
+      "imgCene": "imgfinal.gif",
+      "nameP": " ",
+      "said" : "Essa é a mensagem final desse final",
+      "button": [
+        {
+          "name": " ",
+          "id": " "
+        }
+      ]
+    },
+
+    {
+      "id": "@creditos",
+      "imgP": " ",
+      "imgCene": " ",
+      "nameP": " ",
+      "said" : "Essa é a mensagem quando pula direto pros créditos",
+      "button": [
+        {
+          "name": " ",
+          "id": " "
+        }
+      ]
+    }
+
+
+  ]
+}

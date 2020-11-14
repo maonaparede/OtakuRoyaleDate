@@ -1,0 +1,78 @@
+{
+  "rotas":[
+
+    {
+      "id": "1",
+      "imgP": "saber.png",
+      "imgCene": "background2.jpg",
+      "nameP": "Saber ",
+      "said" : "Oi tudo bem?",
+      "button": [
+        {
+          "name": "Eae",
+          "id": "2"
+        },
+        {
+          "name": "(Ignorar)",
+          "id": "3"
+        }
+      ]
+    },
+
+    {
+      "id": "2",
+      "imgP": "saber.png",
+      "imgCene": "background2.jpg",
+      "nameP": "Saber Suspeita",
+      "said": " As Acho que me despeço aqui",
+      "button": [
+        {
+          "name": "Ir para o Final Com uma imagem",
+          "id": "@ifinal"
+        },
+        {
+          "name": "(Conhecer o Goku)",
+          "id": "3"
+        }
+      ]
+    },
+
+    {
+      "id": "3",
+      "imgP": "goku.png",
+      "imgCene": "background2.jpg",
+      "nameP": "Goku",
+      "said": "Oi eu sou o Goku! Quer ver como muda o cenário de Fundo?",
+      "button": [
+        {
+          "name": "Sim!",
+          "id": "4"
+        },
+        {
+          "name": "Não, quero ir pros Créditos!",
+          "id": "@creditos"
+        }
+      ]
+    },
+
+    {
+      "id": "4",
+      "imgP": "goku.png",
+      "imgCene": "background1.jpg",
+      "nameP": "Goku",
+      "said": "É assim que muda o cenário de Fundo",
+      "button": [
+        {
+          "name": "Valeu GUGU! (Ir pros créditos) ",
+          "id": "@creditos"
+        },
+        {
+          "name": "(Ir para a tela só de imagens para depois ir pros créditos)",
+          "id": "@ifinal"
+        }
+      ]
+    }
+
+
+  ]
+}

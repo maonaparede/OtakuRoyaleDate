@@ -1,2 +1,3 @@
+include ':hxaudio-v331'
 include ':app'
 rootProject.name = "OtakuRoyaleDate"

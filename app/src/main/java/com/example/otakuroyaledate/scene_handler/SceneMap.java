@@ -25,7 +25,7 @@ public class SceneMap {
         Rotas rotas = new Rotas(new ArrayList<Scene>());
         JsonHandler jsonHandler = new JsonHandler(context);
         try {
-            //pega o primeiro o nome dos Jsons q serão usados no jogo, tipo R.raw.novel
+            //pega o primeiro o nome dos Jsons q serão usados no jogo, tipo R.raw.rota1
             allRotas.setAllRotas(jsonHandler.getAllJson());
             //Depois pega o arquivo pelo nome e adiciona na lista rotas
             for (String rts: allRotas.getAllRotas()) {

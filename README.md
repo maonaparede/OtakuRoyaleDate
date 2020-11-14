@@ -23,6 +23,7 @@ Cada Rota que será computada está nesse arquivo, as cenas estão dentro da rot
  
  A rota é um arquivo Json que tem a seguinte estrutura (Essa rota só tem uma cena, envolta por colchetes):
  
+ 	{
            "rotas":[
 
               {
@@ -131,8 +132,8 @@ No campo button dentro de uma cena.
  
  A tela de vídeo pega o nome do vídeo da tag "imgCene" e pega o vídeo na pasta "raw" e carrega no player.(Não recomendo usar vídeos, sujeito a mudanças).
  
- 
-	 "rotas":[
+ 	{
+	 	"rotas":[
 
 		      {
 			"id": "@i22",

@@ -1,27 +1,25 @@
-package com.example.otakuroyaledate;
+package com.example.otakuroyaledate.audio;
 
 import android.content.Context;
-import android.net.Uri;
 import android.util.Log;
 
+import com.example.otakuroyaledate.R;
 import com.huhx0015.hxaudio.audio.HXMusic;
-import com.huhx0015.hxaudio.builder.HXMusicBuilder;
 import com.huhx0015.hxaudio.interfaces.HXMusicListener;
 import com.huhx0015.hxaudio.model.HXMusicItem;
-
-import java.io.IOException;
 
 
 public class MusicPlayer extends HXMusic implements HXMusicListener {
 
     private int music;
-   // private int id;
     private Context context;
 
-    public MusicPlayer init(Context context, int music, Boolean loop){
+    public MusicPlayer init(Context context, int music){
         this.context = context;
         this.music = music;
 
+
+        //Somehow this is necessary
         HXMusic.setListener(this);
 
         return this;
@@ -63,9 +61,6 @@ public class MusicPlayer extends HXMusic implements HXMusicListener {
 
 
 
-    public void finish(){
-
-    }
 
 
     @Override
@@ -75,7 +70,7 @@ public class MusicPlayer extends HXMusic implements HXMusicListener {
 
     @Override
     public void onMusicCompletion(HXMusicItem hxMusicItem) {
-        finish();
+
     }
 
     @Override

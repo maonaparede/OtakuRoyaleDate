@@ -3,12 +3,13 @@ package com.example.otakuroyaledate;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.otakuroyaledate.audio.MusicPlayer;
+import com.example.otakuroyaledate.audio.Playlist;
 import com.example.otakuroyaledate.scene_handler.JsonHandler;
 import com.example.otakuroyaledate.utils.ConfirmationDialog;
 import com.example.otakuroyaledate.utils.DialogGeneric;
@@ -37,10 +38,12 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
     //music Teste - ignorar
     public void clickteste(View v){
         if(teste == 0){
-            new MusicPlayer().init(this , R.raw.stone , false).start();
+            //new MusicPlayer().init(this , R.raw.stone ).start();
+             new Playlist(this).nextMusic();
             teste = 1;
         }else if(teste == 1){
-            new MusicPlayer().init(this , R.raw.tatakae , false).start();
+            new Playlist(this).nextMusic();
+           // new MusicPlayer().init(this , R.raw.tatakae ).start();
             teste = 2;
         }else{
             new MusicPlayer().pauseM();

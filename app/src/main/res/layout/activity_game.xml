@@ -98,12 +98,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButton_sound_state"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@android:color/transparent"
+        android:onClick="soundState"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-            android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_music_note_24"
         tools:ignore="VectorDrawableCompat" />

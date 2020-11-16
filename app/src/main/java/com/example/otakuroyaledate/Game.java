@@ -11,12 +11,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.otakuroyaledate.audio.MusicPlayer;
+import com.example.otakuroyaledate.audio.Playlist;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
+import com.huhx0015.hxaudio.audio.HXMusic;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
@@ -27,16 +32,14 @@ public class Game extends AppCompatActivity {
     private static ImageView background;
     private static ImageView personagem;
     private static TextView namePersonagem;
+    private ImageButton soundState;
+
+    private Boolean soundStateBool = true;
     private RecyclerView recyclerDialogue;
     private static GroupAdapter adapterDialogue;
     private RecyclerView recyclerOptions;
     private static GroupAdapter adapterOptions;
     private static Context context;
-
-
-    public static Sfx songBackground;
-    public static Sfx audioPersonagem;
-    public static Sfx efeitos;
 
 
 
@@ -50,6 +53,8 @@ public class Game extends AppCompatActivity {
         personagem = findViewById(R.id.personagem);
         background = findViewById(R.id.backgroud);
         namePersonagem = findViewById(R.id.name_personagem);
+        soundState = findViewById(R.id.imageButton_sound_state);
+
         recyclerDialogue = findViewById(R.id.recyclerview_dialogue);
         recyclerOptions = findViewById(R.id.recyclerview_options);
         adapterDialogue = new GroupAdapter();
@@ -75,16 +80,14 @@ public class Game extends AppCompatActivity {
 
             SceneHandler er = new SceneHandler();
             er.init(this);
-            SceneHandler.nextCene("1");
+            SceneHandler.nextCene(id);
         }else{
             Toast.makeText(this , "Algo deu Errado" , Toast.LENGTH_LONG).show();
         }
 
+
+        new Playlist(this).nextMusic();
     }
-
-
-
-
 
     private void optionSelected(Item item , View view){
         Item_option option = (Item_option) item;
@@ -101,6 +104,13 @@ public class Game extends AppCompatActivity {
         }else{
             Log.e("Dev miss: ", " You forgot the 'key' of a Option");
         }
+    }
+
+
+    @Override
+    protected void onStop() {
+        new MusicPlayer().pauseM();
+        super.onStop();
     }
 
     private void nextCene(String key){
@@ -131,17 +141,19 @@ public class Game extends AppCompatActivity {
     }
 
 
-    public static Sfx getAudioPersonagem() {
-        return audioPersonagem;
+    public void soundState(View view){
+        if(soundStateBool){
+            soundStateBool = false;
+            new MusicPlayer().stopM();
+            Glide.with(this).load(R.drawable.ic_baseline_music_off_24).into(soundState);
+        }else{
+            soundStateBool = true;
+            new Playlist(this).nextMusic();
+            Glide.with(this).load(R.drawable.ic_baseline_music_note_24).into(soundState);
+        }
     }
 
-    public static Sfx getEfeitos() {
-        return efeitos;
-    }
 
-    public static Sfx getSongBackground() {
-        return songBackground;
-    }
 
     public static ImageView getBackground() {
         return background;

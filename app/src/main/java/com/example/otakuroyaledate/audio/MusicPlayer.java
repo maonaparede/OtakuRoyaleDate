@@ -11,15 +11,18 @@ import com.huhx0015.hxaudio.model.HXMusicItem;
 
 public class MusicPlayer extends HXMusic implements HXMusicListener {
 
+    //The 'int' is a id that come from R.raw.(some music name)
     private int music;
     private Context context;
+
+
 
     public MusicPlayer init(Context context, int music){
         this.context = context;
         this.music = music;
 
 
-        //Somehow this is necessary
+        //Somehow this is necessary, to make this work
         HXMusic.setListener(this);
 
         return this;
@@ -47,8 +50,8 @@ public class MusicPlayer extends HXMusic implements HXMusicListener {
     }
 
 
-    public void resume(){
-        HXMusic.resume(context);
+    public void resumeM(Context context1){
+        HXMusic.resume(context1);
     }
 
     public void pauseM(){
@@ -68,9 +71,11 @@ public class MusicPlayer extends HXMusic implements HXMusicListener {
 
     }
 
+
+    //Go to the next Music when the actual ends
     @Override
     public void onMusicCompletion(HXMusicItem hxMusicItem) {
-
+        new Playlist(context).nextMusic();
     }
 
     @Override

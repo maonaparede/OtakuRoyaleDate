@@ -109,14 +109,15 @@ public class Game extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        new MusicPlayer().pauseM();
+        soundStateBool = true;
+        setSoundState();
         super.onStop();
     }
 
     private void nextCene(String key){
         SceneHandler.nextCene(key);
         //save id from scene to continue
-        SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+        SharedPreferences shared = getSharedPreferences("info", MODE_PRIVATE);
         shared.edit().putString("id" , key).apply();
     }
 
@@ -141,14 +142,18 @@ public class Game extends AppCompatActivity {
     }
 
 
-    public void soundState(View view){
+    public void soundStateClick(View view){
+        setSoundState();
+    }
+
+    private void setSoundState(){
         if(soundStateBool){
             soundStateBool = false;
-            new MusicPlayer().stopM();
+            new MusicPlayer().pauseM();
             Glide.with(this).load(R.drawable.ic_baseline_music_off_24).into(soundState);
         }else{
             soundStateBool = true;
-            new Playlist(this).nextMusic();
+            new MusicPlayer().resume(this);
             Glide.with(this).load(R.drawable.ic_baseline_music_note_24).into(soundState);
         }
     }

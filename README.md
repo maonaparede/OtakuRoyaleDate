@@ -168,3 +168,13 @@ Erros Comuns do Usuário	:
 		
 
 	
+
+
+
+Música
+
+
+Verificar a classe "Playlist" dentro da pasta "audio", lá tem um Array de int chamado "musics". Esse Array possui todas as músicas que serão tocadas no game, para adicionar uma música, basta a música estar na pasta raw, depois disso é só referenciar a música dentro do array, assim:
+
+	  private final static int[] musics =
+		    {R.raw.music1 , R.raw.music2 , R.raw.music3, R.raw.music4};

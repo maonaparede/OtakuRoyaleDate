@@ -14,6 +14,7 @@ import com.example.otakuroyaledate.audio.Playlist;
 import com.example.otakuroyaledate.scene_handler.JsonHandler;
 import com.example.otakuroyaledate.utils.ConfirmationDialog;
 import com.example.otakuroyaledate.utils.DialogGeneric;
+import com.huhx0015.hxaudio.audio.HXSound;
 
 public class MainActivity extends AppCompatActivity implements ConfirmationDialog {
 
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
 
 
     public void newGame(View v){
+        HXSound.sound().load(R.raw.select_click).play(this);
+
         String message = getResources().getString(R.string.new_game_message);
         new DialogGeneric()
                 .createDialogRemoveConfirmation(this , message ,
@@ -61,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
     }
 
     public void continueGame(View v){
+        HXSound.sound().load(R.raw.select_click).play(this);
+
         SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
         String id = shared.getString("id" , "");
 
@@ -72,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
         }
     }
 
-    public void credits(View v){
+    public void toCredits(View v){
+        HXSound.sound().load(R.raw.select_click).play(this);
         startActivity(new Intent(this , Credits.class));
     }
 

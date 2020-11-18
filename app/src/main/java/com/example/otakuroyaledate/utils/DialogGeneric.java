@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.otakuroyaledate.R;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_dialogue;
+import com.huhx0015.hxaudio.audio.HXSound;
 import com.xwray.groupie.GroupAdapter;
 
 
@@ -52,6 +53,7 @@ public class DialogGeneric {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                HXSound.sound().load(R.raw.select_click).play(context);
                 dialog.dismiss();
                 callFunction();
 

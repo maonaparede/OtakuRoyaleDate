@@ -22,6 +22,7 @@ import com.example.otakuroyaledate.audio.Playlist;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
 import com.huhx0015.hxaudio.audio.HXMusic;
+import com.huhx0015.hxaudio.audio.HXSound;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
@@ -34,6 +35,8 @@ public class Game extends AppCompatActivity {
     private static TextView namePersonagem;
     private ImageButton soundState;
 
+
+    private Playlist playlist;
     private Boolean soundStateBool = true;
     private RecyclerView recyclerDialogue;
     private static GroupAdapter adapterDialogue;
@@ -86,7 +89,11 @@ public class Game extends AppCompatActivity {
         }
 
 
-        new Playlist(this).nextMusic();
+
+           playlist = new Playlist(this);
+            setSoundState();
+
+
     }
 
     private void optionSelected(Item item , View view){
@@ -105,7 +112,6 @@ public class Game extends AppCompatActivity {
             Log.e("Dev miss: ", " You forgot the 'key' of a Option");
         }
     }
-
 
     @Override
     protected void onStop() {
@@ -149,11 +155,14 @@ public class Game extends AppCompatActivity {
     private void setSoundState(){
         if(soundStateBool){
             soundStateBool = false;
-            new MusicPlayer().pauseM();
+            playlist.pauseM();
             Glide.with(this).load(R.drawable.ic_baseline_music_off_24).into(soundState);
         }else{
+            if(!playlist.isInitialized()){
+                playlist.nextMusic();
+            }
             soundStateBool = true;
-            new MusicPlayer().resume(this);
+            playlist.resume(this);
             Glide.with(this).load(R.drawable.ic_baseline_music_note_24).into(soundState);
         }
     }

@@ -17,11 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.otakuroyaledate.audio.MusicPlayer;
 import com.example.otakuroyaledate.audio.Playlist;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
-import com.huhx0015.hxaudio.audio.HXMusic;
 import com.huhx0015.hxaudio.audio.HXSound;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
@@ -92,11 +90,24 @@ public class Game extends AppCompatActivity {
 
            playlist = new Playlist(this);
             setSoundState();
-
-
     }
 
+
+
+
+
+    @Override
+    protected void onStop() {
+        soundStateBool = true;
+        setSoundState();
+        super.onStop();
+    }
+
+
     private void optionSelected(Item item , View view){
+        //play the sfx
+        HXSound.sound().load(R.raw.select_options).play(this);
+
         Item_option option = (Item_option) item;
         String key = option.getIdKey();
         Log.d("Cene ID" , key);
@@ -113,12 +124,6 @@ public class Game extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStop() {
-        soundStateBool = true;
-        setSoundState();
-        super.onStop();
-    }
 
     private void nextCene(String key){
         SceneHandler.nextCene(key);
@@ -149,6 +154,7 @@ public class Game extends AppCompatActivity {
 
 
     public void soundStateClick(View view){
+        HXSound.sound().load(R.raw.sound_enable_desable).play(this);
         setSoundState();
     }
 

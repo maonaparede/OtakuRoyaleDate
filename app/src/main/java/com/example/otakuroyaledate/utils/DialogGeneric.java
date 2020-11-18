@@ -53,7 +53,7 @@ public class DialogGeneric {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HXSound.sound().load(R.raw.select_click).play(context);
+                HXSound.sound().load(R.raw.select_click_menu).play(context);
                 dialog.dismiss();
                 callFunction();
 

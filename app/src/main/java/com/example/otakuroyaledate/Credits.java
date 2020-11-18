@@ -2,9 +2,7 @@ package com.example.otakuroyaledate;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,13 +11,12 @@ import com.example.otakuroyaledate.objects.Scene;
 import com.example.otakuroyaledate.scene_handler.SceneMap;
 import com.example.otakuroyaledate.utils.ConfirmationDialog;
 import com.example.otakuroyaledate.utils.DialogGeneric;
+import com.huhx0015.hxaudio.audio.HXSound;
 
 public class Credits extends AppCompatActivity implements ConfirmationDialog {
 
     private String end;
     private TextView textView;
-    private static MediaPlayer mediaPlayer;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +24,6 @@ public class Credits extends AppCompatActivity implements ConfirmationDialog {
         setContentView(R.layout.activity_credits);
 
         textView = findViewById(R.id.credits);
-        context = this;
 
 
         Bundle bundle = getIntent().getExtras();
@@ -37,15 +33,7 @@ public class Credits extends AppCompatActivity implements ConfirmationDialog {
         }
 
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.tatakae);
 
-        //mediaPlayer.start();
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                toCredits();
-            }
-        });
     }
 
 
@@ -66,17 +54,6 @@ public class Credits extends AppCompatActivity implements ConfirmationDialog {
     }
 
 
-    @Override
-    protected void onPause() {
-        mediaPlayer.stop();
-        super.onPause();
-    }
-
-
-    private void toCredits() {
-        mediaPlayer.stop();
-    }
-
 
     @Override
     public void DialogConfirmation() {
@@ -84,6 +61,8 @@ public class Credits extends AppCompatActivity implements ConfirmationDialog {
     }
 
     public void toHome(View v){
+        //play the sfx
+        HXSound.sound().load(R.raw.select_click_menu).play(this);
         //Send to main Activity and clear all the screen Before
         startActivity(new Intent(this , MainActivity.class).
                 setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));

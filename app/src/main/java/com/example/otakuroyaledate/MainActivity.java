@@ -3,7 +3,6 @@ package com.example.otakuroyaledate;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
 
 
     public void newGame(View v){
-        HXSound.sound().load(R.raw.select_click).play(this);
+        HXSound.sound().load(R.raw.select_click_menu).play(this);
 
         String message = getResources().getString(R.string.new_game_message);
         new DialogGeneric()
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
     }
 
     public void continueGame(View v){
-        HXSound.sound().load(R.raw.select_click).play(this);
+        HXSound.sound().load(R.raw.select_click_menu).play(this);
 
         SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
         String id = shared.getString("id" , "");
@@ -78,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
     }
 
     public void toCredits(View v){
-        HXSound.sound().load(R.raw.select_click).play(this);
+        HXSound.sound().load(R.raw.select_click_menu).play(this);
         startActivity(new Intent(this , Credits.class));
     }
 

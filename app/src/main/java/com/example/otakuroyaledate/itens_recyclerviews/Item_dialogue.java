@@ -14,9 +14,14 @@ public class Item_dialogue extends Item<ViewHolder> {
 
     //item que vai na recycler view da fala do personagem. Só o texto msm
     private String textDialogue;
+    private int intDialogue;
 
     public Item_dialogue(String textDialogue) {
         this.textDialogue = textDialogue;
+    }
+
+    public Item_dialogue(int intDialogue){
+        this.intDialogue = intDialogue;
     }
 
     @Override
@@ -25,7 +30,12 @@ public class Item_dialogue extends Item<ViewHolder> {
         believe.cht.fadeintextview.TextView dialogue = viewHolder.itemView.findViewById(R.id.dialogue_text);
 
             dialogue.setLetterDuration(50);
-            dialogue.setText(textDialogue);
+            if(textDialogue != null) {
+                dialogue.setText(textDialogue);
+            }else {
+                dialogue.setText(intDialogue);
+            }
+
         }
 
 

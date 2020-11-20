@@ -47,12 +47,14 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
+    <com.example.onbutton.OnButton
         android:id="@+id/dialog_ok_cancel_button_ok"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="1"
+        android:soundEffectsEnabled="false"
         android:background="#555"
+        app:onTouch_background="@color/CinzaE1"
         android:clickable="false"
         android:text="OK"
         android:textColor="#FFFFFF"

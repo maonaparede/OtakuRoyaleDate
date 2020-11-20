@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OnButton">
+        <attr format="color" name="onTouch_text_color"/>
+        <attr format="reference" name="onTouch_background"/>
+        <attr name="android:text"/>
+        <attr name="android:onClick"/>
+    </declare-styleable>
+</resources>

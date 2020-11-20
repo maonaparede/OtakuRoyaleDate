@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
             e.printStackTrace();
         }
 
+        HXSound.enable(true);
     }
 
 

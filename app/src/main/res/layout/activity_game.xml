@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game">
+    tools:context=".Game"
+
+    >
 
 
     <ImageView
@@ -12,9 +14,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/personagem"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -23,10 +26,10 @@
 
     <ImageView
         android:id="@+id/personagem"
-        android:layout_width="215dp"
-        android:layout_height="373dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        android:layout_width="278dp"
+        android:layout_height="437dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroud"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground"
@@ -57,10 +60,10 @@
             android:maxWidth="375dp"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
-            android:shadowColor="#000"
+            android:shadowColor="@color/Preto"
             android:shadowRadius="9.0"
             android:text="Nome"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/Branco"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/recyclerview_dialogue"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +81,10 @@
             android:paddingBottom="5dp"
             android:scrollbarFadeDuration="5000"
             android:scrollbarStyle="outsideInset"
+            android:isScrollContainer="true"
             android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@color/CinzaB4"
+            android:fadeScrollbars="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,10 +96,11 @@
         android:layout_width="205dp"
         android:layout_height="200dp"
         android:layout_marginEnd="16dp"
-        android:overScrollMode="never"
-        android:scrollbarStyle="outsideInset"
 
         android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@color/CinzaB4"
+        android:fadeScrollbars="false"
+        android:isScrollContainer="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,6 +110,7 @@
         android:layout_height="50dp"
         android:background="@android:color/transparent"
         android:onClick="soundStateClick"
+        android:soundEffectsEnabled="false"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

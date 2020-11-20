@@ -4,47 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Credits">
+    tools:context=".Credits"
+    android:background="@color/Preto">
 
-    <TextView
-        android:id="@+id/credits"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/credits_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
+        android:forceDarkAllowed="false"
         android:gravity="center"
+        android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@color/CinzaB4"
+        android:fadeScrollbars="false"
         android:text="@string/credits"
         android:textAlignment="center"
+        android:theme="@style/Theme.AppCompat.DayNight"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/credits_title" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <com.example.onbutton.OnButton
         android:id="@+id/button2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#888"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/CinzaE3"
         android:onClick="toHome"
-        android:text="Pular"
-        android:textColor="#fff"
+        android:soundEffectsEnabled="false"
+        android:text="@string/credits_button"
+        android:textColor="@color/Branco"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/credits_title"
-        android:layout_width="112dp"
-        android:layout_height="39dp"
-        android:gravity="center"
-        android:text="Créditos"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:onTouch_background="@color/CinzaE1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

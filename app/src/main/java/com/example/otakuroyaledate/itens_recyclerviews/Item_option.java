@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
+import com.example.onbutton.OnButton;
 import com.example.otakuroyaledate.R;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.ViewHolder;
@@ -23,7 +24,9 @@ public class Item_option extends Item<ViewHolder> {
     @Override
     public void bind(@NonNull ViewHolder viewHolder, int position) {
 
-        Button button = viewHolder.itemView.findViewById(R.id.option_button);
+        OnButton button = viewHolder.itemView.findViewById(R.id.option_button);
+
+        button.setSoundEffectsEnabled(false);
 
         Animation out = new AlphaAnimation(0.0f, 1.0f);
         out.setRepeatMode(Animation.REVERSE);

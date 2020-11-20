@@ -1,12 +1,39 @@
 <resources>
     <string name="app_name">OtakuRoyaleDate</string>
 
-    <string name="credits">Template Desenvolvido por maonaparede(GitHub)
-     grande mestre da arte de codar, gênio generalista</string>
+    <string name="credits">
+ <![CDATA[
+                <h1> Credits </h1>
+                <p>Line one <b>bold</b> e <i>italic</i> texto</p>
+                <p>Html é usado para melhorar a capacidade de personalização nos créditos.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+                <p>line.</p>
+
+]]>
+    </string>
 
     <string name="credits_title">Obrigado por Jogar!</string>
+    <string name="credits_message">"O desenvolvedor esqueceu de colocar uma mensagem final aqui, então... Obrigado por jogar"</string>
+    <string name="credits_developed">Template desenvolvido Por Maonaparede</string>
+    <string name="credits_button">Pular</string>
 
     <string name="not_saved_game">Você não possui nenhum jogo Salvo</string>
     <string name="new_game_message">Deseja Começar um novo Jogo? Todos os dados do seu jogo serão excluidos, tem certeza?</string>
     <string name="new_game_title">Novo Jogo</string>
+
+    <string name="main_new_game">Novo Jogo</string>
+    <string name="main_continue">Continue</string>
+    <string name="main_credits">Créditos</string>
+    <string name="main_title">Visual Novel Template For Android</string>
+    <string name="image_background_image">background_image</string>
 </resources>

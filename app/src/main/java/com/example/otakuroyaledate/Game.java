@@ -1,13 +1,16 @@
 package com.example.otakuroyaledate;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,12 +23,14 @@ import com.bumptech.glide.Glide;
 import com.example.otakuroyaledate.audio.Playlist;
 import com.example.otakuroyaledate.itens_recyclerviews.Item_option;
 import com.example.otakuroyaledate.scene_handler.SceneHandler;
+import com.example.otakuroyaledate.utils.SpeedyLinearLayoutManager;
 import com.huhx0015.hxaudio.audio.HXSound;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
 
-public class Game extends AppCompatActivity {
+@RequiresApi(api = Build.VERSION_CODES.M)
+public class Game extends AppCompatActivity{
 
 
     private static ImageView background;
@@ -59,17 +64,21 @@ public class Game extends AppCompatActivity {
         recyclerDialogue = findViewById(R.id.recyclerview_dialogue);
         recyclerOptions = findViewById(R.id.recyclerview_options);
         adapterDialogue = new GroupAdapter();
-        recyclerDialogue.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL, false));
+        recyclerDialogue.setLayoutManager(new SpeedyLinearLayoutManager(this, SpeedyLinearLayoutManager.VERTICAL, false));
         recyclerDialogue.setAdapter(adapterDialogue);
         adapterOptions = new GroupAdapter();
-        recyclerOptions.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL, false));
+        recyclerOptions.setLayoutManager(new SpeedyLinearLayoutManager(this, SpeedyLinearLayoutManager.VERTICAL, false));
         recyclerOptions.setAdapter(adapterOptions);
+
+
 
         context = this;
 
         adapterOptions.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull Item item, @NonNull View view) {
+                //play the sfx
+                HXSound.sound().load(R.raw.select_option).play(context);
                 optionSelected(item, view);
             }
         });
@@ -105,8 +114,7 @@ public class Game extends AppCompatActivity {
 
 
     private void optionSelected(Item item , View view){
-        //play the sfx
-        HXSound.sound().load(R.raw.select_options).play(this);
+
 
         Item_option option = (Item_option) item;
         String key = option.getIdKey();
@@ -174,7 +182,6 @@ public class Game extends AppCompatActivity {
     }
 
 
-
     public static ImageView getBackground() {
         return background;
     }
@@ -198,4 +205,7 @@ public class Game extends AppCompatActivity {
     public static Context getContext() {
         return context;
     }
+
+
+
 }

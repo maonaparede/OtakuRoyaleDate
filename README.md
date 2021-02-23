@@ -1,5 +1,5 @@
 # OtakuRoyaleDate
-Um template desenvolvido como desafio de criar uma visual novel.
+Um projeto pessoal, com o desafio de criar um template de visual novel.
 
 O código pode ser alterado Livremente, mas o principal para uma visual novel já está codado.
 
